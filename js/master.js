@@ -1,5 +1,16 @@
 $(document).ready(function(){
-  console.log("Fuckers");
+  
+  $('#box').css({"left": "-50px", "opacity": "0"});
+  $('#box2').css({"left": "50px", "opacity": "0"});
+
+  $(window).scroll(function(){
+    console.log($(window).scrollTop());
+    if($(window).scrollTop() > 759){
+      console.log('fire!');
+      $('#box').animate({ left: '0px', opacity: '1'}, 1000);
+      $('#box2').animate({ left: '0px', opacity: '1'}, 1000);
+    }
+  });
   // $('#zoomimg').css("cursor","pointer");
   // $('#zoomimg').animate({width: "50%", height: "50%"}, 'slow');
   //
@@ -29,4 +40,5 @@ $(document).ready(function(){
     $('#zooming2').animate({ height: '100%', width: '100%',
                             top: '0', left: '0'})
     });
+
 });

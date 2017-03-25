@@ -1,8 +1,24 @@
+.font1{
+  font-family: 'Squada One', cursive;
+}
+
+.font2{
+  font-family: 'Average Sans', sans-serif;
+}
+
+.bgwhite{
+  background-color: white !important;
+}
+
+.nav-block{
+  margin-bottom: 0px !important;
+}
+
 .border{
   height: 390px;
   width: 390px;
   position: relative;
-  display: inline-block;
+  margin: 0 auto;
   border: 10px solid white;
   overflow: hidden;
 }
@@ -61,4 +77,17 @@
 
 .topspace{
   margin-top: 10px !important;
+}
+
+.botspace{
+  margin-bottom: 20px !important;
+}
+
+.verticalspace{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.botpad{
+  padding-bottom: 20px !important;
 }
