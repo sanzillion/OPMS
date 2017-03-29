@@ -1,5 +1,5 @@
 <?php
-
+session_start();
  ?>
  <!DOCTYPE html>
  <html>
@@ -22,7 +22,7 @@
      <div class="container-fluid">
        <div class="row">
          <div class="col-md-12 text-center verticalspace">
-           <h1 class="font1">Portfolio Sign-up</h1>
+           <h1 class="font1">Create Portfolio</h1>
          </div>
        </div>
        <div class="row">
@@ -30,20 +30,26 @@
            <nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
              <div class="container-fluid">
                <ul class="nav navbar-nav">
-                 <li class="active"><a href="#">Login Information</a></li>
+                 <li class="active" disabled><a href="#">Login Information</a></li>
+                 <li><a href="#" disabled>Credentials</a></li>
+                 <li><a href="#" disabled>Portfolio</a></li>
                </ul>
-               <li><a href="#"></a></li>
+
              </div>
            </nav>
          </div>
          <div class="col-md-6 col-md-offset-3">
            <div class="container-fluid pull-center" style="background-color: white; padding-bottom: 30px;">
                <div class="col-md-6">
-                 <a class="btn btn-default topspace" href="../index.html"><i class="fa fa-arrow-left"></i> Back</a>
-                 <h2 class="font2">Login Details</h2>
-                 <form class="form-group" action="index.html" method="post" enctype="multipart/form-data">
+                 <div class="row pull-left">
+                    <a class="btn btn-default btn-sm topspace" href="../index.html"><i class="fa fa-arrow-left"></i> Back</a>
+                 </div>
+                   <hr>
+                 <h2 class="font2  topspace-lg">Login Details</h2>
+                 <form class="form-group" action="../process/create.php" method="post" enctype="multipart/form-data">
                    <input type="text" name="user" placeholder="username" class="form-control topspace" required>
                    <input type="password" name="pass" placeholder="password" class="form-control topspace" required>
+                   <input type="password" name="conpass" placeholder="confirm password" class="form-control topspace" required>
                    <label for="img" class="topspace">Profile Img:</label>
                    <input type="file" name="img" id="img" class="form-control topspace" required>
                    <span class="help-block">Images goes here</span>
@@ -53,13 +59,12 @@
                  <input type="text" name="first" placeholder="Givenname" class="form-control topspace" required>
                  <input type="text" name="last" placeholder="Lastname" class="form-control topspace" required>
                  <input type="text" name="nick" placeholder="Nickname" class="form-control topspace" required>
-                 <input type="text" name="nick" placeholder="Short Description" class="form-control topspace" required>
+                 <input type="text" name="descr" placeholder="Short Description" class="form-control topspace" required>
                  <span class="help-block" style="margin-bottom: 20px;">Ex. Full Stack Developer</span>
-                 <button type="submit" class="btn btn-primary btn-block" name="submit">Register</button>
+                 <button type="submit" value="submit" class="btn btn-primary btn-block" name="create">Register &nbsp <i class="fa fa-arrow-right"></i></button>
+                 </form>
                </div>
            </div>
-
-           </form>
          </div>
 
        </div>
@@ -78,3 +83,12 @@
    <!-- Custom JavaScript -->
    <script src="../js/master.js"></script>
  </html>
+
+ <?php
+ if(isset($_GET['error']) && $_GET['error'] == 1){
+   echo '<script type="text/javascript">
+     alert("'.$_SESSION['error'].'");
+   </script>';
+ }
+
+  ?>
